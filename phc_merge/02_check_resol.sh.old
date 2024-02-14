@@ -1,0 +1,5 @@
+#!/bin/bash
+KPATH=/media/kuntaro/KBU-004/240115-PH_matome/_kamoproc_dials/merge_scripts/merge_10deg_re/ccc_1.1A_framecc_b+B/script
+while read -r f; do
+python $KPATH/02_check_resol.py $f
+done < <(find . -name '.resol')
