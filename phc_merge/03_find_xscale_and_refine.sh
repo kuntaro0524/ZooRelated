@@ -1,5 +1,5 @@
 #!/bin/bash
-ROOTDIR=/staff/bl32xu/Staff/kuntaro/171101-PH/_kamoproc_dials/merge_scripts/merge_10deg_re/ccc_1.1A_framecc_b+B/
+ROOTDIR=/user/target/Staff/kuntaro/171101-PH/_kamoproc_dials/merge_ccc_1.1S_1deg/cc_1.12A_final/
 SCRIPT_DIR=$ROOTDIR/scripts/
 
 SYMM="I23"
@@ -9,7 +9,6 @@ REFMTZ=$ROOTDIR/Models/free.mtz
 count=0
 
 # $PROCPATHに存在する
-#xscale_files=`find $ROOTDIR -name 'xscale.hkl'`
 xscale_files=`find . -name 'xscale.hkl'`
 
 for xscale_file in $xscale_files; do
