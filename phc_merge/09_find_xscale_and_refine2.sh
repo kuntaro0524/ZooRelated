@@ -33,7 +33,7 @@ echo "RESOL=$RESOL"
 # 環境変数を引き継ぎつつ、refine_template.comを実行
 # backgroundで実行し、48つのジョブが終了するまで待つ
 export ORIMTZ PROCPATH SYMM FREEMTZ MODEL_PDB REFMTZ RESOL
-envsubst < $SCRIPT_DIR/03_refine_template.com | bash &
+envsubst < $SCRIPT_DIR/09_refine_template.com | bash &
 
 # ccp4_pathに .resol がないか、サイズが0
 else

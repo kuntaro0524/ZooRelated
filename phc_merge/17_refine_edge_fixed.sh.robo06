@@ -3,14 +3,12 @@ ROOTDIR=/staff/bl32xu/Staff/kuntaro/171101-PH/_kamoproc_dials/merge_scripts/merg
 SCRIPT_DIR=$ROOTDIR/scripts/
 
 SYMM="I23"
-MODEL_PDB=$ROOTDIR/Models/model.pdb
-REFMTZ=$ROOTDIR/Models/free.mtz
 
 count=0
 
 # $PROCPATHに存在する
 #xscale_files=`find $ROOTDIR -name 'xscale.hkl'`
-xscale_files=`find . -name 'xscale.hkl'`
+xscale_files=`find . -name 'xscale.hkl' | grep -v anode`
 
 for xscale_file in $xscale_files; do
 
@@ -27,13 +25,13 @@ if [ ! -s $ccp4_path/.resol ]; then
 ((count=count+1))
 
 # RESOLUTIONを数値として取得
-RESOL=`cat $PROCPATH/.resol`
+RESOL=1.33
 echo "RESOL=$RESOL"
 
 # 環境変数を引き継ぎつつ、refine_template.comを実行
 # backgroundで実行し、48つのジョブが終了するまで待つ
 export ORIMTZ PROCPATH SYMM FREEMTZ MODEL_PDB REFMTZ RESOL
-envsubst < $SCRIPT_DIR/03_refine_template.com | bash &
+envsubst < $SCRIPT_DIR/17_refine_template_fixed.com  | bash &
 
 # ccp4_pathに .resol がないか、サイズが0
 else
@@ -43,7 +41,7 @@ fi
 
 # 8つのジョブが終了するまで待つ
 echo $count
-if ((count % 100 == 0)); then
+if ((count % 24 == 0)); then
     wait
 fi
 

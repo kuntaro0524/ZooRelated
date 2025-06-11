@@ -1,6 +1,6 @@
 #!/bin/bash
-export KPATH=~/Staff/kuntaro/kundev/
-
+KPATH=/home/kuntaro/kundev/kunpy/
+export KPATH
 CPU_COUNT=48
 count=0
 
@@ -17,7 +17,7 @@ echo $ccp4_path
 if [ ! -s $ccp4_path/.resol ]; then
     echo "Run $xscale_file"
 
-$KPATH/k3python $KPATH/command_lines/decide_resolution.py $existing_path/XSCALE.LP $ccp4_path  &
+$KPATH/kpython $KPATH/command_lines/decide_resolution.py $existing_path/XSCALE.LP $ccp4_path  &
 
 ((count=count+1))
 

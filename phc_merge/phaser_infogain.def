@@ -1,0 +1,10 @@
+  phaser << eof
+  TITLe beta blip automatic
+  MODE MR_AUTO
+  HKLIn free_reindex.mtz
+  LABIn I=IMEAN SIGI=SIGIMEAN
+  ENSEmble maru PDB sent.pdb IDENtity 100
+  SEARch ENSEmble maru NUM 1
+  ROOT ./ # not the default
+  INFO ON
+  eof
